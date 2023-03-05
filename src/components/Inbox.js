@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 const Inbox = (props) => {
- const [newTask, setNewTask] = useState(false);
+  const [newTask, setNewTask] = useState(false);
 
   const titleRef = useRef(null);
   const calendarRef = useRef(null);
@@ -28,13 +28,12 @@ const Inbox = (props) => {
   const cancelHandler = (e) => {
     setNewTask(false);
   };
- 
 
   return (
     <div>
       <h3>Inbox</h3>
       {!newTask && (
-        <button className="new" onClick={newTaskHandler} id='add-new'>
+        <button className="new" onClick={newTaskHandler} id="add-new">
           +Add New
         </button>
       )}
@@ -60,7 +59,7 @@ const Inbox = (props) => {
       <div id="inbox">
         {props.list.map((list) => {
           return (
-            <div className="box">
+            <div className="box" key={list.number}>
               <div className="task">
                 {list.title} ({list.date.toLocaleDateString()})
               </div>
